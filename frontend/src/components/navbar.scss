@@ -1,0 +1,88 @@
+#nav-container{
+    position: fixed;
+    min-height: 80px;
+    background-color: #111111;
+    width: 100%;
+    color: #ffffff;
+    z-index: 21;
+
+    #navigation-bar{
+        position: relative;
+        display: flex;
+        height: 80px;
+        width: auto;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        #logo-container{
+            position: relative;
+            height: 100%;
+            width: 10%;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            a{
+                    height: 100%;
+                    width: 100%;
+                    img{
+                        position: relative;
+                        object-fit: cover;
+                        // width: 100%;
+                        height: 40%;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                    }
+            }
+            
+        }
+
+        #right-nav-bar{
+            position: relative;
+            height: 100%;
+            width: 240px;
+            ul{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                list-style: none;
+                width: 100%;
+                column-gap: 40px;
+                justify-content: flex-end;
+                li{
+                    display: inline-block;
+
+                    #search{
+                        min-height: 28px;
+                        min-width: 28px;
+                        transition: 0.5s ease;
+                        :hover{
+                            color: #00cd1e;
+                            transition: 0.5s ease;
+                        }
+                    }
+
+                    #cart{
+                        min-height: 24px;
+                        min-width: 24px;
+                        
+                        :hover{
+                            color: #00cd1e;
+                            transition: 0.5s ease-in-out;
+                        }
+                    }
+
+                    #account{
+                        min-height: 30px;
+                        min-width: 30px;
+                        :hover{
+                            color: #00cd1e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
