@@ -1,6 +1,6 @@
 import './home.scss'
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 // import axios from 'axios'
 import LogoWord from '../../images/logo/logo-word.png';
 import noIMG from '../../images/img-placeholder.png'
@@ -13,6 +13,7 @@ import Separator from '../../components/Separator/Separator';
 import TrustPanel from '../../components/TrustPanel/TrustPanel';
 import GreenButton from '../../components/Button/GreenButton/GreenButton';
 import Categories from '../../components/Categories/Categories';
+import { CartContext } from '../../Context/CartContext';
 
 import { BsStarFill } from 'react-icons/bs'
 import { BsFillEnvelopeFill} from 'react-icons/bs'
@@ -20,10 +21,14 @@ import { BsFillEnvelopeFill} from 'react-icons/bs'
 function Home(){
     const [newProduct, setNewProduct] = useState([])
     const [url, setURL] = useState('')
+    const { URL } = useContext(CartContext)
+
+
+    console.log(URL)
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const response = await fetch('/newest', {
+                const response = await fetch(`${URL}/newest`, {
                     method: "GET"
                 })
                 .then((res) => res.json())
