@@ -1110,6 +1110,7 @@ app.post('/sso', async (req, res) => {
     }
 })
 
-app.listen(5000, () =>{
-    console.log("Server started on PORT 5000")
+const PORT = 5000
+app.listen(PORT, () =>{
+    console.log(`Server started on PORT ${PORT}`)
 })
