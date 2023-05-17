@@ -17,7 +17,6 @@ CREATE TABLE rsn_product(
 	publisher varchar(256),
 	date varchar(256),
 	descriptions VARCHAR,
-	file_ID,
 	created_At timestamp default current_timestamp,
 	CONSTRAINT fk_fileid
 	FOREIGN KEY(fileID) REFERENCES rsn_prodct_file(file_id)
@@ -112,14 +111,14 @@ CREATE TABLE rsn_admin(
 )
 
 
-CREATE TABLE rsn_cart(
-	cartID SERIAL PRIMARY KEY,
-	totalCart DECIMAL(10,2),
-	quantity INT,
-	userid INT,
-	CONSTRAINT fk_userid
-	FOREIGN KEY(userid) REFERENCES rsn_user(userid)
-)
+	CREATE TABLE rsn_cart(
+		cartID SERIAL PRIMARY KEY,
+		totalCart DECIMAL(10,2),
+		quantity INT,
+		userid INT,
+		CONSTRAINT fk_userid
+		FOREIGN KEY(userid) REFERENCES rsn_user(userid)
+	)
 
 CREATE TABLE rsn_order_items(
 	itemid SERIAL PRIMARY KEY,
@@ -151,5 +150,8 @@ CREATE TABLE rsn_inventory(
 	CONSTRAINT fk_productid
 	FOREIGN KEY (productID) REFERENCES rsn_product(productid)
 )
+
+
+
 
 
