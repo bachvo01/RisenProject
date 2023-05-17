@@ -3,7 +3,7 @@ const Pool = require('pg').Pool;
 // const pool = new Pool({
 //     user: "postgres",
 //     password: "123456789",
-//     host: "localhost",
+//     host: process.env.DB_HOST,
 //     port: 5432,
 //     database: "Risen",
 //     idleTimeoutMillis: 30000,
@@ -16,6 +16,7 @@ const pool = new Pool({
     host: "dpg-chicdq5269vf5qd5q5dg-a.singapore-postgres.render.com",
     port: 5432,
     database: "risen_database",
+    ssl: true,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000
 });
