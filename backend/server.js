@@ -297,7 +297,7 @@ app.get
 
 //Add a Product
 const IMAGE_UPLOAD_DIR = './public/images'
-const IMAGE_BASE_URL = 'http://localhost:5000/images/'
+const IMAGE_BASE_URL = 'https://risen-server.onrender.com/images/'
 
 app.use(express.static('public'))
 
