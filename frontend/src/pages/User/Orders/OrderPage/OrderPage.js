@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './orderPage.scss'
 import Separator from '../../../../components/Separator/Separator'
 import { useNavigate } from 'react-router-dom'
@@ -12,13 +12,14 @@ function OrderPage(props) {
     const handleBack = () => { navigate(-1) }
     const [items, setItems] = useState([])
     const [details, setDetails] = useState([])
+    const { URL } = useContext(CartContext)
     const url = window.location.href
     const extractedURL = url.split('/')[4]
     useEffect(() => {   
         const getItems = async () => {
             const token = localStorage.getItem("accessUserToken")
             const body = { orderID : extractedURL}
-            const response = await fetch('/get/orders/details',{
+            const response = await fetch(`${URL}/get/orders/details`,{
                 method: "POST",
                 headers: {"Content-type" : "application/json", "Authorization" : "Bearer " + token},
                 body: JSON.stringify(body)
@@ -30,7 +31,7 @@ function OrderPage(props) {
         const getDetails = async () => {
             const token = localStorage.getItem("accessUserToken")
             const body = { orderID : extractedURL}
-            const response = await fetch('/get/order/id',{
+            const response = await fetch(`${URL}/get/order/id`,{
                 method: "POST",
                 headers: {"Content-type" : "application/json", "Authorization" : "Bearer " + token},
                 body: JSON.stringify(body)
@@ -42,7 +43,7 @@ function OrderPage(props) {
 
         const getCodeOrder = async () => {
             const token = localStorage.getItem("accessUserToken")
-            const response = await fetch('/get/order/activate',{
+            const response = await fetch(`${URL}/get/order/activate`,{
                 method: "POST",
                 headers: {"Content-type" : "application/json", "Authorization" : "Bearer " + token}
             })

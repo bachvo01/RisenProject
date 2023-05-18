@@ -1,15 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './signup.scss'
 import Separator from '../Separator/Separator'
 // import logoVertical from '../../images/logo/verical-green.png'
 import poster from '../../images/mando.jpg'
 import { Link, Navigate } from 'react-router-dom'
+import { CartContext } from '../../Context/CartContext'
 function SignUp(prop) {
     const [title, setTitle] = useState(prop.title)
     const [isError, setIsError] = useState(undefined)
     const [isValid, setIsValid] = useState(undefined)
-
+    const {URL} = useContext(CartContext)
     const [input, setInvalidInput] = useState("")
     const [form, setFormData] = useState({
         firstname: "",
@@ -58,7 +59,7 @@ function SignUp(prop) {
             const url = window.location.href;
             console.log(url)
             // if(isValid === true){
-                const response = await fetch(url, {
+                const response = await fetch(`${URL}/user/signup`, {
                     method: "POST",
                     headers: {"Content-type": "application/json"},
                     body: JSON.stringify(body),

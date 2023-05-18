@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './orderMini.scss'
+import { CartContext } from '../../../../Context/CartContext'
 function OrderMini(props) {
     const [items, setItems] = useState([])
-
+    const { URL } = useContext(CartContext)
     useEffect(() => {   
         const getItems = async () => {
             const token = localStorage.getItem("accessUserToken")
             const body = { orderID : props.id}
-            const response = await fetch('/get/orders/details',{
+            const response = await fetch(`${URL}/get/orders/details`,{
                 method: "POST",
                 headers: {"Content-type" : "application/json", "Authorization" : "Bearer " + token},
                 body: JSON.stringify(body)
