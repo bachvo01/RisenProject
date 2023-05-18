@@ -30,8 +30,8 @@ function Login(prop) {
                 password: user.password
             }
             const url = window.location.href;
-
-            const response = await fetch(url, {
+            //user sigin in request
+            const response = await fetch(`${URL}/user/signin`, {
                 method: 'POST',
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify(body),
