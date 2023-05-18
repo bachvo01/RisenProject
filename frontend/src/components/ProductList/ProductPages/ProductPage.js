@@ -32,10 +32,10 @@ function ProductPage() {
     const [number, setNumber] = useState(0)
     const ref = useRef()
     // const {cart, setCart} = useContext(CartContext)
-    const {quantity, setQuantity, total, setTotal} = useContext(CartContext)
+    const {quantity, setQuantity, total, setTotal, URL} = useContext(CartContext)
 
     useEffect(() => {
-        const url = '/api/' + filteredID
+        const url = `${URL}/api/` + filteredID
         // console.log(url)
         const getDetails = async () => {
             try {

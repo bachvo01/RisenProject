@@ -21,7 +21,7 @@ app.use(express.json())
 const salt = bcrypt.genSaltSync(12)
 
 //JWT_SECRET_KEY
-const JWT_SECRET_KEY = "9876543210"
+const JWT_SECRET_KEY = "123456789"
 const JWT_SECRET_REFRESH = "refresh12345"
 
 //Routes

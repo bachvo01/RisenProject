@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {Route, Routes, Navigate } from 'react-router-dom';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import './admin.scss'
@@ -6,8 +6,9 @@ import Separator from '../../components/Separator/Separator';
 import Dashboard from '../../components/DashNav/Routes/Dashboard/Dashboard';
 import DashNav from '../../components/DashNav/DashNav';
 import logoMascot from '../../images/logo/mascot-green.png'
+import { CartContext } from '../../Context/CartContext';
 function Admin() {
-
+  const {URL} = useContext(CartContext)
   const handleClick = async () =>{
     window.localStorage.removeItem("accessToken")
     window.localStorage.removeItem("authenticated")

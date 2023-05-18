@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://risen-server.onrender.com/",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^36.0.1",
@@ -40,6 +39,9 @@
       "react-app/jest"
     ]
   },
+  "engines": {
+    "node": "18.x"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
   }
 }

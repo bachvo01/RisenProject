@@ -6,7 +6,7 @@ import { CartContext } from '../../Context/CartContext';
 // import Items from '../../data/products.json'
 
 function ProductList(props){
-    const {library, setLibrary, search, genre} = useContext(CartContext)
+    const {library, setLibrary, search, genre, URL} = useContext(CartContext)
     const [products, setProducts] = useState([])
     const [wishlist, setWishList] = useState([])
     const [topWish, setTopWish] = useState([])
@@ -16,7 +16,7 @@ function ProductList(props){
 
         const getData = async () => {
             try {
-                const response = await fetch('/api')
+                const response = await fetch(`${URL}/api`)
                 .then((res) => res.json())
                 .then((data) => {
                     setProducts(data)
@@ -28,7 +28,7 @@ function ProductList(props){
 
         const getTopWish = async () => {
             try {
-                const response = await fetch('/api/top/wishlist')
+                const response = await fetch(`${URL}/api/top/wishlist`)
                 .then((res) => res.json())
                 .then((data) => {
                     setTopWish(data)
@@ -39,7 +39,7 @@ function ProductList(props){
         }
         const getTopSellers = async () => {
             try {
-                const response = await fetch('/api/top/sellers')
+                const response = await fetch(`${URL}/api/top/sellers`)
                 .then((res) => res.json())
                 .then((data) => {
                     setTopSellers(data)
@@ -53,7 +53,7 @@ function ProductList(props){
             const token = window.localStorage.getItem("accessUserToken")
             const body = {userID : props.id}
             try {
-                const response = await fetch('/api/wishlist',{
+                const response = await fetch(`${URL}/api/wishlist`,{
                     method: "POST",
                     headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
                     body: JSON.stringify(body)

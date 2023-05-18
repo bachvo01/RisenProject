@@ -1,11 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './login.scss'
 import logoVertical from '../../images/logo/vertical-green.png'
 import { Link ,useNavigate } from 'react-router-dom'
 import {FaFacebookF} from 'react-icons/fa'
 import {FcGoogle} from 'react-icons/fc'
 import {MdCancel} from 'react-icons/md'
+import { CartContext } from '../../Context/CartContext'
 
 function Login(prop) {
   const [user, setUser] = useState([{
@@ -14,7 +15,7 @@ function Login(prop) {
   }])
 
   const [isAuthenticated, setAuthenticated] = useState(false)
-
+  const { URL } = useContext(CartContext)
   const handleChange = (e) =>{
         const {name, value} = e.target
         setUser({...user, [name] : value})

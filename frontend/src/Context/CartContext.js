@@ -16,7 +16,7 @@ export const CartProvider = ({children}) => {
     const [libraryNumb, setLibraryNumb] = useState(0)
     const [payment, setPayment] = useState([])
     const token = localStorage.getItem("accessUserToken")
-
+    const URL = process.env.REACT_APP_BACKEND_URL
     // useEffect(() =>{
     //     setCart([])
     //     setOrders([])
@@ -26,7 +26,7 @@ export const CartProvider = ({children}) => {
     useEffect(() => {
         const cartInfo = async () => {
             try {
-                const response = await fetch("/cart/info",{
+                const response = await fetch(`${URL}/cart/info`,{
                 method: 'POST',
                 headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token}
                 })
@@ -61,7 +61,8 @@ export const CartProvider = ({children}) => {
                         library, setLibrary,
                         libraryNumb, setLibraryNumb,
                         search, setSearch,
-                        genre, setGenre
+                        genre, setGenre,
+                        URL
                     }
                 }
             >
