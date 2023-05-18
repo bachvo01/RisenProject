@@ -62,7 +62,7 @@ function ProductPage() {
                     const body = {
                         productid : filteredID
                     }
-                    const res = await fetch('/get/wishlist',{
+                    const res = await fetch(`${URL}/get/wishlist`,{
                         method: 'POST',
                         headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
                         body: JSON.stringify(body)
@@ -97,7 +97,7 @@ function ProductPage() {
 
                 try {
                     if(ref.current === false){   
-                        const response = await fetch('/unwishlist', {
+                        const response = await fetch(`${URL}/unwishlist`, {
                             method: 'POST',
                             headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
                             body: JSON.stringify(body)
@@ -105,7 +105,7 @@ function ProductPage() {
 
                     }
                     else if(ref.current === true){
-                        const response = await fetch('/wishlist', {
+                        const response = await fetch(`${URL}/wishlist`, {
                             method: 'POST',
                             headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
                             body: JSON.stringify(body)
@@ -139,7 +139,7 @@ function ProductPage() {
                 total: total + parseFloat(parseFloat(productDetails.price).toFixed(2)),
                 quantity: quantity + 1
             }
-            const response = await fetch('/cart', {
+            const response = await fetch(`${URL}/cart`, {
                 method: 'POST',
                 headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
                 body: JSON.stringify(body)
@@ -178,7 +178,7 @@ function ProductPage() {
             quantity: quantity + 1
         }
 
-        const response = await fetch('/cart', {
+        const response = await fetch(`${URL}/cart`, {
             method: 'POST',
             headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token},
             body: JSON.stringify(body)
