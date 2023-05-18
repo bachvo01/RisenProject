@@ -14,7 +14,7 @@ import { CartContext } from '../../../Context/CartContext'
 
 
 function Payment() {
-  const {payment, setPayment, setCart, total, setTotal, quantity, setQuantity} = useContext(CartContext)
+  const {payment, setPayment, setCart, total, setTotal, quantity, setQuantity, URL} = useContext(CartContext)
   const [credit, setCredit] = useState([])
   const [number, setNumber] = useState('')
   const [name, setName] = useState('')
@@ -55,7 +55,7 @@ function Payment() {
             quantity : quantity
         }
 
-        const response = await fetch('/pay', {
+        const response = await fetch(`${URL}/pay`, {
             method: 'POST',
             headers: {"Content-type" : "application/json" , "Authorization" : "Bearer " + token},
             body: JSON.stringify(body)

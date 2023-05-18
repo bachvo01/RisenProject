@@ -11,7 +11,7 @@ import GreenButton from '../../components/Button/GreenButton/GreenButton'
 
 function Cart(props) {
     const [inventory, setInventory] = useState([])
-    const {quantity, total, setPayment} = useContext(CartContext)
+    const {quantity, total, setPayment, URL} = useContext(CartContext)
     
 
     // useEffect(() => {
@@ -48,7 +48,7 @@ function Cart(props) {
     const inventInfo = async () => {
         const token = localStorage.getItem('accessUserToken')
         try {
-            const response = await fetch("/cart/inventory/info",{
+            const response = await fetch(`${URL}/cart/inventory/info`,{
             method: 'POST',
             headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token}
             })

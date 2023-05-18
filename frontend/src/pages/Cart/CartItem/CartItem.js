@@ -4,7 +4,7 @@ import './cartItem.scss'
 import {FaRegTrashAlt} from 'react-icons/fa'
 import { CartContext } from '../../../Context/CartContext'
 function CartItem(props) {
-    const {cart, setCart, quantity, setQuantity, total, setTotal, payment, setPayment} = useContext(CartContext)
+    const {cart, setCart, quantity, setQuantity, total, setTotal, payment, setPayment, URL} = useContext(CartContext)
     const [isDeleted , setIsDeleted] = useState(false)
 
     const titleUrl = props.title
@@ -15,7 +15,7 @@ function CartItem(props) {
         const token = localStorage.getItem('accessUserToken')
         const getCartDetails = async () => {
             try {
-                const response = await fetch("/cart/info",{
+                const response = await fetch(`${URL}/cart/info`,{
                 method: 'POST',
                 headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token}
                 })
@@ -37,7 +37,7 @@ function CartItem(props) {
             cartid : cart.cartid,
             quantity: quantity - 1
         }
-        const res = await fetch('/cart/remove', {
+        const res = await fetch(`${URL}/cart/remove`, {
             method: "DELETE",
             headers: {"Authorization" : "Bearer " + token, "Content-type": "application/json"},
             body: JSON.stringify(body)
