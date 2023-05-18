@@ -5,12 +5,12 @@ import OrderMini from './OrderMini/OrderMini'
 import { Link } from 'react-router-dom'
 
 function Orders(props) {
-    const {orders, setOrders} = useContext(CartContext)  
+    const {orders, setOrders, URL} = useContext(CartContext)  
     useEffect(() =>{
         const token = window.localStorage.getItem("accessUserToken")
         const body = {userID : props.id}
         const getOrders = async () => {
-            const response = await fetch('/get/orders', {
+            const response = await fetch(`${URL}/get/orders`, {
                 method: 'POST',
                 headers: {"Content-type" : "application/json", "Authorization" : "Bearer " + token},
                 body: JSON.stringify(body)

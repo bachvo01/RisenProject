@@ -9,16 +9,16 @@ import UserNav from './UserNav/UserNav'
 import { CartContext } from '../../Context/CartContext'
 import axios from 'axios'
 function User() {
-  const { setWishDetails, setLibrary, setLibraryNumb} = useContext(CartContext)
+  const { setWishDetails, setLibrary, setLibraryNumb, URL} = useContext(CartContext)
   const [status, setStatus] = useState("")
   const [user, setUser] = useState([])
   const [wishNumb, setWishNumb] = useState(0)
   useEffect(() => {
-    const url = window.location.href
+    // const url = window.location.href
     const getUser = async () => {
       try{
         const token = localStorage.getItem('accessUserToken')
-        const response = await fetch(url, {
+        const response = await fetch(`${URL}/user`, {
           method: 'POST',
           headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token}
         })
