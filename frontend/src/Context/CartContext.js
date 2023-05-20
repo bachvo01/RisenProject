@@ -17,6 +17,8 @@ export const CartProvider = ({children}) => {
     const [payment, setPayment] = useState([])
     const token = localStorage.getItem("accessUserToken")
     const URL = process.env.REACT_APP_BACKEND_URL
+    const FE_URL = process.env.REACT_APP_FRONTEND_URL
+    console.log(FE_URL)
     // useEffect(() =>{
     //     setCart([])
     //     setOrders([])
@@ -62,7 +64,7 @@ export const CartProvider = ({children}) => {
                         libraryNumb, setLibraryNumb,
                         search, setSearch,
                         genre, setGenre,
-                        URL
+                        URL, FE_URL
                     }
                 }
             >

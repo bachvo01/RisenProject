@@ -10,7 +10,7 @@ function SignUp(prop) {
     const [title, setTitle] = useState(prop.title)
     const [isError, setIsError] = useState(undefined)
     const [isValid, setIsValid] = useState(undefined)
-    const {URL} = useContext(CartContext)
+    const {URL, FE_URL} = useContext(CartContext)
     const [input, setInvalidInput] = useState("")
     const [form, setFormData] = useState({
         firstname: "",
@@ -41,7 +41,7 @@ function SignUp(prop) {
     //         setIsValid(true)
     //     }
     // }
-
+ 
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
@@ -57,8 +57,9 @@ function SignUp(prop) {
             }
         
             const url = window.location.href;
-
-            if(url === `${URL}/user/signup`){
+            console.log(`${FE_URL}/user/signup`)
+            if(url == `${FE_URL}/user/signup`){
+                console.log('1')
                 const response = await fetch(`${URL}/user/signup`, {
                     method: "POST",
                     headers: {"Content-type": "application/json"},
@@ -79,7 +80,8 @@ function SignUp(prop) {
                     }
                 })    
             }
-            else if(url === `${URL}/admin/signup`){
+            else if(url == `${FE_URL}/admin/signup`){
+                console.log('1')
                 const response = await fetch(`${URL}/admin/signup`, {
                     method: "POST",
                     headers: {"Content-type": "application/json"},

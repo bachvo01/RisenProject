@@ -1,16 +1,18 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import './editItem.scss'
+import { CartContext } from '../../../../../Context/CartContext';
 function EditItem(props) {
     // const [edit, setEdit] = useState(false)
+    const { URL } = useContext(CartContext)
     const [isDeleted , setIsDeleted] = useState(false)
     const handleDelete = async () => {
         const token = window.localStorage.getItem('accessToken')
         const body = {
             productID : props.id
         }
-        const deleteProduct = await fetch('/api', {
+        const deleteProduct = await fetch(`${URL}/api`, {
             method: "DELETE",
             headers: {"Authorization" : "Bearer " + token, "Content-type": "application/json"},
             body: JSON.stringify(body)

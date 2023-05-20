@@ -1,18 +1,19 @@
 import './editform.scss'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Add from '../../AddProduct/Add'
 import Separator from '../../../../Separator/Separator'
 import Headings from '../../../../ProductList/ProductPages/Headings/Headings'
 import {MdOutlineArrowBack} from 'react-icons/md'
+import { CartContext } from '../../../../../Context/CartContext'
 function EditForm() {
   const id = window.localStorage.getItem("editID")
   const [editData, setEditData] = useState([])
-
+  const { URL } = useContext(CartContext)
 
   useEffect(() => {
-    const url = '/api/' + id
+    const url = `${URL}/api/` + id
     const getProduct = async () =>{
       try {
         const response = await fetch(url)

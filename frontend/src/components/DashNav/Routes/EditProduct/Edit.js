@@ -1,10 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './edit.scss'
 import EditItem from './Edit-Item/EditItem'
 import EditForm from './Edit-Form-Page/EditForm'
+import { CartContext } from '../../../../Context/CartContext'
 
 function Edit() {
+  const { URL } = useContext(CartContext)
   const [productDetails, setProductDetails] = useState([])
   const [search, setSearch] = useState([]) 
   const [edit, setEdit] = useState(false)
@@ -13,7 +15,7 @@ function Edit() {
   useEffect(() => {
     const getDetails = async () => {
       try {
-        const response = await fetch('/api')
+        const response = await fetch(`${URL}/api`)
         .then((res) => res.json())
         .then((data) => {
           setProductDetails(data)
