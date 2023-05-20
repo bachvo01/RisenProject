@@ -57,8 +57,8 @@ function SignUp(prop) {
             }
         
             const url = window.location.href;
-            console.log(url)
-            // if(isValid === true){
+
+            if(url === `${URL}/user/signup`){
                 const response = await fetch(`${URL}/user/signup`, {
                     method: "POST",
                     headers: {"Content-type": "application/json"},
@@ -77,7 +77,31 @@ function SignUp(prop) {
                     else{
                         setIsError(true)
                     }
-                })            
+                })    
+            }
+            else if(url === `${URL}/admin/signup`){
+                const response = await fetch(`${URL}/admin/signup`, {
+                    method: "POST",
+                    headers: {"Content-type": "application/json"},
+                    body: JSON.stringify(body),
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data.error)
+                    console.log(input)
+                    console.log(isValid)
+                    if(data.error === false){
+                        setIsError(false)
+                        // console.log(isError)
+                        window.location = `/${prop.title}/signin`
+                    }
+                    else{
+                        setIsError(true)
+                    }
+                })    
+            }
+            // if(isValid === true){
+                        
             // }
             
             

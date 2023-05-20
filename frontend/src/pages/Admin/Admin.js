@@ -20,7 +20,7 @@ function Admin() {
     const getAdmin = async () => {
       try{
         const token = window.localStorage.getItem("accessToken")
-        const response = await fetch(url, {
+        const response = await fetch(`${URL}/admin`, {
           method: 'POST',
           headers: {"Content-type": "application/json", "Authorization" : "Bearer " + token}
         })

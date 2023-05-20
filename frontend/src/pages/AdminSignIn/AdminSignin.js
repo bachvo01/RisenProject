@@ -1,15 +1,18 @@
 import React from 'react'
 import './adminsignin.scss'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import {FaFacebookF} from 'react-icons/fa'
 import {FcGoogle} from 'react-icons/fc'
 
 import poster from '../../images/controller-poster.png'
 import logoHorizontal from '../../images/logo/horizontal-green.png'
+import { CartContext } from '../../Context/CartContext'
 // import Separator from '../../components/Separator/Separator'
 
 function AdminSignin(prop) {
+    const { URL } = useContext(CartContext)
+
     const [admin, setAdmin] = useState([{
         email: "",
         password: "",
@@ -33,7 +36,7 @@ function AdminSignin(prop) {
             }
             const url = window.location.href;
 
-            const response = await fetch(url, {
+            const response = await fetch(`${URL}/admin/signin`, {
                 method: 'POST',
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify(body),
