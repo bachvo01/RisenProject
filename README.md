@@ -34,8 +34,14 @@ For the back-end development, we used:
 - Node.js
 - PostgreSQL
 
+## Installation
+To be updated..
+
 ## Acknowledgements
-- [Instant Gaming](https://www.instant-gaming.com/en/) 
+- [Instant Gaming](https://www.instant-gaming.com/en/)
+- <a href='https://flexbox.malven.co/'>Malven's Flexbox Cheatsheet</a>
+- <a href='https://grid.malven.co/'>Malven's Grid Cheatsheet</a>
+- <a href='https://react-icons.github.io/react-icons/search/'>React Icons</a>
 
 
 
