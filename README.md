@@ -13,7 +13,7 @@ The project is the assignment in which the groups are required to develop a web 
 - Tran Duc Cao Nguyen - 14117
 - Nguyen Tuan Ngoc - 15809
 
-## Topic: Video Game Digital Distribution Service and Storefront Systen
+## Topic: Video Game Digital Distribution Service and Storefront System
 The project is a prototype for an online store system and it is restricted within college
 premises. This has been implemented under guidance of Dr. Huynh Trung Hieu. This
 project is useful for customers to purchase games remotely. In addition, some businesses
